@@ -1,0 +1,3 @@
+evaluator_homepage:
+    path:     /
+    defaults: { _controller: EvaluatorBundle:Default:index }
