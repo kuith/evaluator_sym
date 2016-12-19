@@ -28,7 +28,7 @@ EvaluatorBundle\Entity\Mark:
             scale: 0
     manyToOne:
         idCourse:
-            targetEntity: Courses
+            targetEntity: Course
             cascade: {  }
             fetch: LAZY
             mappedBy: null
@@ -38,7 +38,7 @@ EvaluatorBundle\Entity\Mark:
                     referencedColumnName: id
             orphanRemoval: false
         idPartial:
-            targetEntity: Partials
+            targetEntity: Partial
             cascade: {  }
             fetch: LAZY
             mappedBy: null
@@ -48,7 +48,7 @@ EvaluatorBundle\Entity\Mark:
                     referencedColumnName: id
             orphanRemoval: false
         idStudent:
-            targetEntity: Students
+            targetEntity: Student
             cascade: {  }
             fetch: LAZY
             mappedBy: null

@@ -30,4 +30,5 @@ EvaluatorBundle\Entity\User:
             length: 255
             options:
                 fixed: false
+  
     lifecycleCallbacks: {  }

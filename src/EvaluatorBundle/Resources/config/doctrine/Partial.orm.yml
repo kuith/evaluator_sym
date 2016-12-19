@@ -22,7 +22,7 @@ EvaluatorBundle\Entity\Partial:
                 unsigned: false
     manyToOne:
         idCourse:
-            targetEntity: Courses
+            targetEntity: Course
             cascade: {  }
             fetch: LAZY
             mappedBy: null

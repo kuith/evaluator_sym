@@ -1,6 +1,7 @@
 <?php
 
 namespace EvaluatorBundle\Entity;
+use Doctrine\Common\Collections\ArrayCollection;
 
 /**
  * Course
@@ -16,9 +17,23 @@ class Course
      * @var string
      */
     private $name;
-
-
-    /**
+	
+	protected $student;
+	
+	public function __construct() {
+		$this->$student = new ArrayCollection();
+	}
+	
+	public function addStudent(\EvaluatorBundle\Entity\Student $student){
+		$this->student[] = $student;
+		return $this;
+	}
+	
+	public function getStudent(){
+		return $this->student;
+	}
+	
+	 /**
      * Get id
      *
      * @return integer

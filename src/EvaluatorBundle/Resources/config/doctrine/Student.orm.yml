@@ -23,11 +23,11 @@ EvaluatorBundle\Entity\Student:
                 fixed: false
     manyToOne:
         idCourse:
-            targetEntity: Courses
+            targetEntity: Course
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: Student
             joinColumns:
                 id_course:
                     referencedColumnName: id
