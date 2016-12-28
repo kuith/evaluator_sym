@@ -8,6 +8,9 @@ class DefaultController extends Controller
 {
     public function indexAction()
     {
-        return $this->render('EvaluatorBundle:Default:index.html.twig');
+		echo("holita");
+		die();
+		
+        return $this->render('EvaluatorBundle:default:index.html.twig');
     }
 }
