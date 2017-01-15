@@ -17,9 +17,4 @@ EvaluatorBundle\Entity\Course:
             length: 255
             options:
                 fixed: false
-    oneToMany:
-        student:
-            targetEntity: Student
-            mappedBy: Course
-            cascade: ["persist"]
     lifecycleCallbacks: {  }
