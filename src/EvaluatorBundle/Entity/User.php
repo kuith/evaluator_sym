@@ -1,11 +1,11 @@
 <?php
 
 namespace EvaluatorBundle\Entity;
-
+use Symfony\Component\Security\Core\User\UserInterface;
 /**
  * User
  */
-class User
+class User implements UserInterface
 {
     /**
      * @var integer
@@ -27,7 +27,21 @@ class User
      */
     private $password;
 
-
+	public function getUserName(){
+		return $this->name;
+	}
+	
+	public function getSalt(){
+		return null;
+	}
+	
+	public function getRoles() {
+		return array($this->setRole());
+	}
+	
+	public function eraseCredentials() {
+		;
+	}
     /**
      * Get id
      *
