@@ -1,12 +1,12 @@
 login:
     path: /login
-    defaults: {_ontroller: Evaluatorbundle:User:login}
+    defaults: {_controller: EvaluatorBundle:User:login}
     
 login_check:
     path: /login_check
 
 logout:
-    path: /login
+    path: /logout
 
 evaluator_homepage:
     path: /

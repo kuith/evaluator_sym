@@ -13,7 +13,7 @@ class UserController extends Controller
 		$error = $authenticationUtils->getLastAuthenticationError();
 		$lastUserName = $authenticationUtils->getLastUsername();
 		
-        return $this->render('EvaluatorBundle:user:login.html.twig', array(
+        return $this->render('EvaluatorBundle:User:login.html.twig', array(
 			"error" => $error,
 			"last_username" => $lastUserName
 		));

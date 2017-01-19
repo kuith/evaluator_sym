@@ -1,0 +1,22 @@
+{% extends "EvaluatorBundle::layout.html.twig" %}
+{% block content %}
+    {% if app.user != null%}
+        {{dump (app.user)}}
+    {% endif%}
+    <div class="col-lg-4">
+        <h4>Identif&iacute;cate</h4>
+        <hr/>
+        <form action="{{path("login_check")}}" method="post">
+            <label>Nombre:</label>
+            <input type="text" id="username" name="_username" value="{{last_username}}" class="form-control" />
+            <br/>
+            <label>Password:</label>
+            <input type="password" id="password" name="_password" class="form-control" />
+            <br/>
+            <input type="submit" value="Entrar" class="btn btn-success">
+            <input type="hidden" name="_target_path" value="/login"> <!-- Para que no nos lleve a la raíz dfel proyecto (compor. por defecto)-->
+            <br/>
+        </form>
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}
