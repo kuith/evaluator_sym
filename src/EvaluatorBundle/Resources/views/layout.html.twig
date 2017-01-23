@@ -19,21 +19,30 @@
         <div class="container">
             <header>
                 <nav class="navbar navbar-dark bg-primary">
-                    <a class="navbar-brand" href="#">Navbar</a>
+                    <a class="navbar-brand" href="{{path("evaluator_homepage")}}">Evaluator 2.0</a>
                     <span class="nav navbar-nav">
                         <a class="nav-item nav-link" href="#" id="cursosNavItem">Cursos</a>
                         <a class="nav-item nav-link" href="#" id="nuevoCursoNavItem">Nuevo Curso</a>
                     </span>
                     <span class="nav navbar-nav float-md-right">
+
                         <div class="dropdown">
-                                <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Login
-                                </button>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="#">Action</a>
-                                    <a class="dropdown-item" href="#">Another action</a>
-                                </div>
+                            <a class="nav-item nav-link" href="#" id="cursosNavItem">
+                                {% if app.user != null %}
+                                    Bienvenido, {{app.user.name}}
+                                {% endif%}
+                            </a>
+                            <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                Login
+                            </button>
+                            <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                                {% if app.user == null %}
+                                    <a class="dropdown-item" href="{{path("login")}}">Entrar</a>
+                                    {% else %}
+                                    <a class="dropdown-item" href="{{path("logout")}}">Salir</a>
+                                {% endif %}
                             </div>
+                        </div>
                     </span>
 
                 </nav>

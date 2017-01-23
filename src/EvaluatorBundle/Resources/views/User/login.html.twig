@@ -1,8 +1,5 @@
 {% extends "EvaluatorBundle::layout.html.twig" %}
 {% block content %}
-    {% if app.user != null%}
-        {{dump (app.user)}}
-    {% endif%}
     <div class="col-lg-4">
         <h4>Identif&iacute;cate</h4>
         <hr/>
@@ -17,6 +14,12 @@
             <input type="hidden" name="_target_path" value="/login"> <!-- Para que no nos lleve a la raíz dfel proyecto (compor. por defecto)-->
             <br/>
         </form>
+    </div>
+    <div class="col-lg-4">
+        <h4>Reg&iacute;strate</h4>
+        <hr/>
+            {{form_start(form, {'action':'', 'method' : 'POST'})}}
+            {{form_end(form)}}
     </div>
     <div class="clearfix"></div>
 {% endblock %}
