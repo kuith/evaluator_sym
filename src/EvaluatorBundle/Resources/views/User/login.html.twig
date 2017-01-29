@@ -19,6 +19,10 @@
     <div class="col-lg-4">
         <h4>Reg&iacute;strate</h4>
         <hr/>
+            {% for message in app.session.flashbag().get('status') %}
+                <div class="alert alert-success"> {{message}}</div>
+            {% endfor %}
+            
             {{form_start(form, {'action':'', 'method' : 'POST'})}}
             {{form_end(form)}}
     </div>
