@@ -30,7 +30,7 @@ class UserController extends Controller {
 				$user_repo = $em->getRepository("EvaluatorBundle:User");
 				$user = $user_repo->findOneBy(array("name" =>$form->get("name")->getData()));
 				
-				if(count($user) == 0){  //para comprobar si existe ya un usaurio con un nombre determinado, así impedimos usuarios con mismo nombre (en este caso)
+				if(count($user) == 0){  //para comprobar si existe ya un usuario con un nombre determinado, así impedimos usuarios con mismo nombre (en este caso)
 					$user = new User();
 					$user->setName($form->get("name")->getData());
 
