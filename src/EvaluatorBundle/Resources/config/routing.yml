@@ -12,6 +12,10 @@ evaluator_homepage:
     path: /
     defaults: { _controller: EvaluatorBundle:Default:index }
     
+evaluator_index_courses:
+    path: /courses
+    defaults: { _controller: EvaluatorBundle:Course:index }
+    
 evaluator_add_course:
     path: /courses/add
     defaults: { _controller: EvaluatorBundle:Course:add }
