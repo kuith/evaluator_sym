@@ -19,3 +19,12 @@ evaluator_index_courses:
 evaluator_add_course:
     path: /courses/add
     defaults: { _controller: EvaluatorBundle:Course:add }
+
+evaluator_delete_course:
+    path: /courses/delete/{id}
+    defaults: { _controller: EvaluatorBundle:Course:delete }
+
+evaluator_enter_course:
+    path: /courses/enter
+    defaults: {_comntroller: EvaluatorBundle:Course:enter }
+    

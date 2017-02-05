@@ -27,7 +27,7 @@ EvaluatorBundle\Entity\Student:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: null
+            inversedBy: Student
             joinColumns:
                 id_course:
                     referencedColumnName: id

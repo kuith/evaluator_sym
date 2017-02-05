@@ -34,7 +34,7 @@ class UserController extends Controller {
 					$user = new User();
 					$user->setName($form->get("name")->getData());
 
-	//				Para incluir la cpntraseña cifrada en la BD
+	//				Para incluir la contraseña cifrada en la BD
 					$factory = $this->get("security.encoder_factory");
 					$encoder = $factory->getEncoder($user);
 					$password = $encoder->encodePassword($form->get("password")->getData(), $user->getSalt());

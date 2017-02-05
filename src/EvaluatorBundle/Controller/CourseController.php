@@ -62,5 +62,16 @@ class CourseController extends Controller {
 			"form" => $form->createView()
 		));
 	}
+	
+	public function deleteAction($id){
+		$em = $this->getDoctrine()->getManager();
+		$course_repo = $em->getRepository("EvaluatorBundle:Course");
+		
+		$course = $course_repo->find($id);
+		$em->remove($course);
+		$em->flush();
+		
+		return $this->redirectToRoute("evaluator_index_courses");
+	}
 
 }

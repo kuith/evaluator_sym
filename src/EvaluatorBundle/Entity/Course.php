@@ -18,21 +18,21 @@ class Course
      */
     private $name;
 	
-//	protected $student;
-//	
-//	public function __construct() {
-//		$this->$student = new ArrayCollection();
-//	}
-//	
-//	public function addStudent(\EvaluatorBundle\Entity\Student $student){
-//		$this->student[] = $student;
-//		return $this;
-//	}
-//	
-//	public function getStudent(){
-//		return $this->student;
-//	}
-//	
+	protected $student;
+	
+	public function __construct() {
+		$this->student = new ArrayCollection();
+	}
+	
+	public function addStudent(\EvaluatorBundle\Entity\Student $p_student){
+		$this->student[] = $p_student;
+		return $this;
+	}
+	
+	public function getStudent(){
+		return $this->student;
+	}
+	
 	 /**
      * Get id
      *
