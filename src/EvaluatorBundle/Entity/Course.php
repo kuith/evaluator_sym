@@ -19,9 +19,11 @@ class Course
     private $name;
 	
 	protected $student;
+	protected $partial;
 	
 	public function __construct() {
 		$this->student = new ArrayCollection();
+		$this->partial = new ArrayCollection();
 	}
 	
 	public function addStudent(\EvaluatorBundle\Entity\Student $p_student){
@@ -31,6 +33,15 @@ class Course
 	
 	public function getStudent(){
 		return $this->student;
+	}
+	
+	public function addPartial(\EvaluatorBundle\Entity\Partial $p_partial){
+		$this->partial[] = $p_partial;
+		return $this;
+	}
+	
+	public function getPartial(){
+		return $this->partial;
 	}
 	
 	 /**

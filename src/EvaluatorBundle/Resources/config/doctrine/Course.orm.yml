@@ -22,4 +22,8 @@ EvaluatorBundle\Entity\Course:
             targetEntity: Student
             mappedBy: Student
             cascade: ["persist"]
+        partial:
+            targetEntity: Partial
+            mappedBy: Partial
+            cascade: ["persist"]          
     lifecycleCallbacks: {  }

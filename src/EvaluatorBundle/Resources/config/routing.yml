@@ -25,6 +25,6 @@ evaluator_delete_course:
     defaults: { _controller: EvaluatorBundle:Course:delete }
 
 evaluator_enter_course:
-    path: /courses/enter
+    path: /courses/enter/{id}
     defaults: {_comntroller: EvaluatorBundle:Course:enter }
     
