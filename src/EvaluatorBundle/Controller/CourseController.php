@@ -73,5 +73,16 @@ class CourseController extends Controller {
 		
 		return $this->redirectToRoute("evaluator_index_courses");
 	}
+	
+	public function enterAction($id){
+		$em = $this->getDoctrine()->getManager();
+		$course_repo = $em->getRepository("EvaluatorBundle:Course");
+		
+		$course = $course_repo->find($id);
+		
+		return $this->render("EvaluatorBundle:Course:enter.html.twig", array(
+			"course" => $course
+		));
+	}
 
 }

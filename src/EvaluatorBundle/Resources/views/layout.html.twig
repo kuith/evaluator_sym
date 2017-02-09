@@ -23,7 +23,7 @@
                     <span class="nav navbar-nav">
                         {% if app.user != null %}
                             <a class="nav-item nav-link" href="{{path("evaluator_index_courses")}}" id="cursosNavItem">Cursos</a>
-                            <a class="nav-item nav-link" href="#" id="nuevoCursoNavItem">Nuevo Curso</a>
+                            <a class="nav-item nav-link" href="{{path("evaluator_add_course")}}" id="nuevoCursoNavItem">Nuevo Curso</a>
                         {% endif%}
                     </span>
                     <span class="nav navbar-nav float-md-right">
