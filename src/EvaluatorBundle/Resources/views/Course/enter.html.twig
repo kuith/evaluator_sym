@@ -2,7 +2,29 @@
 
 {% block content %}
     <div class="col-lg-6">
-       0Curso: {{course.name}}
+        <div class="card-block text-nowrap">
+            Curso: {{course.name}}
+        </div>
     </div>
+        
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Nombre</th>
+                    <th>Nombre Curso</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for partial in partials %}
+                    <tr>
+                        <td>
+                            {{partial.id}}
+                        </td>
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
     <div class="clearfix"></div>
 {% endblock %}

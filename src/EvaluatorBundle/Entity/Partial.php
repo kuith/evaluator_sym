@@ -21,6 +21,8 @@ class Partial
      * @var \EvaluatorBundle\Entity\Courses
      */
     private $idCourse;
+	
+	 private $name;
 
 
     /**
@@ -79,6 +81,31 @@ class Partial
     public function getIdCourse()
     {
         return $this->idCourse;
+    }
+	
+	
+	/**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return Partial
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }
 

@@ -79,9 +79,13 @@ class CourseController extends Controller {
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
 		
 		$course = $course_repo->find($id);
+		$students = $course->getStudent();
+		$partials = $course->getPartial();
 		
 		return $this->render("EvaluatorBundle:Course:enter.html.twig", array(
-			"course" => $course
+			"course" => $course,
+			"students" => $students,
+			"partials" => $partials
 		));
 	}
 
