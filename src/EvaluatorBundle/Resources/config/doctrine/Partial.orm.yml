@@ -32,7 +32,7 @@ EvaluatorBundle\Entity\Partial:
             cascade: {  }
             fetch: LAZY
             mappedBy: null
-            inversedBy: Partial
+            inversedBy: partial
             joinColumns:
                 id_course:
                     referencedColumnName: id

@@ -24,6 +24,6 @@ EvaluatorBundle\Entity\Course:
             cascade: ["persist"]
         partial:
             targetEntity: Partial
-            mappedBy: Partial
+            mappedBy: idCourse
             cascade: ["persist"]          
     lifecycleCallbacks: {  }
