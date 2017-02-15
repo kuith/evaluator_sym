@@ -20,7 +20,7 @@ EvaluatorBundle\Entity\Course:
     oneToMany:
         student:
             targetEntity: Student
-            mappedBy: Student
+            mappedBy: idCourse
             cascade: ["persist"]
         partial:
             targetEntity: Partial

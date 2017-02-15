@@ -6,28 +6,27 @@
             Curso: {{course.name}}
         </div>
     </div>
-        
-        <table class="table table-striped">
-            <thead class="thead-inverse">
+
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Nombre Alumno</th>
+                    {% for partial in partials %}
+                    <th>
+                        {{partial.name}}
+                        </td>
+                    {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
                 <tr>
-                    <th>Nombre</th>
-                    <th>Nombre Curso</th>
-                    <th></th>
-                    <th></th>
+                    <td>
+                        {{student.name}}
+                    </td>
                 </tr>
-            </thead>
-            <tbody>
-                {% for partial in partials %}
-                    <tr>
-                        <td>
-                            {{partial.id}}
-                        </td>
-                        <td>
-                            {{partial.name}}
-                        </td>
-                    </tr>
-                {% endfor %}
-            </tbody>
-        </table>
+            {% endfor %}
+        </tbody>
+    </table>
     <div class="clearfix"></div>
 {% endblock %}
