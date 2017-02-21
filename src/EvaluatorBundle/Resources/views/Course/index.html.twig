@@ -1,0 +1,42 @@
+{% extends "EvaluatorBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="col-lg-12">
+        {% for message in app.session.flashbag().get('status') %}
+            <div class="alert alert-success"> {{message}}</div>
+        {% endfor %}
+
+        <table class="table table-striped">
+            <thead class="thead-inverse">
+                <tr>
+                    <th>Id Curso</th>
+                    <th>Nombre Curso</th>
+                    <th></th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for course in courses %}
+                    <tr>
+                        <td>
+                            {{course.id}}
+                        </td>
+                        <td>
+                            {{course.name}}
+                        </td>
+                        <td>
+                            <a href="{{path("evaluator_enter_course", {"id":course.id})}}"><img src="{{ asset('images/icon_enter.png') }}"></a>
+                        </td>
+                        <td>
+                            <a href="{{path("evaluator_delete_course", {"id":course.id})}}"><img src="{{ asset('images/icon_delete.png') }}"></a>
+                        </td>
+
+                    </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+
+    </div>
+    <div class="clearfix"></div>
+
+{% endblock %}

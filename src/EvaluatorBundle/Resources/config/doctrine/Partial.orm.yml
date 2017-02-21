@@ -1,0 +1,40 @@
+EvaluatorBundle\Entity\Partial:
+    type: entity
+    table: partials
+    indexes:
+        fk_partials_courses:
+            columns:
+                - id_course
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        weight:
+            type: integer
+            nullable: true
+            options:
+                unsigned: false
+        name:
+            type: string
+            nullable: true
+            length: 255
+            options:
+                fixed: false
+    manyToOne:
+        idCourse:
+            targetEntity: Course
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: partial
+            joinColumns:
+                id_course:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

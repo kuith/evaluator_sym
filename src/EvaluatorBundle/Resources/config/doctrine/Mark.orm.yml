@@ -1,0 +1,60 @@
+EvaluatorBundle\Entity\Mark:
+    type: entity
+    table: marks
+    indexes:
+        fk_marks_courses:
+            columns:
+                - id_course
+        fk_marks_students:
+            columns:
+                - id_student
+        fk_marks_partials:
+            columns:
+                - id_partial
+    id:
+        id:
+            type: integer
+            nullable: false
+            options:
+                unsigned: false
+            id: true
+            generator:
+                strategy: IDENTITY
+    fields:
+        grade:
+            type: float
+            nullable: true
+            precision: 10
+            scale: 0
+    manyToOne:
+        idCourse:
+            targetEntity: Course
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_course:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idPartial:
+            targetEntity: Partial
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_partial:
+                    referencedColumnName: id
+            orphanRemoval: false
+        idStudent:
+            targetEntity: Student
+            cascade: {  }
+            fetch: LAZY
+            mappedBy: null
+            inversedBy: null
+            joinColumns:
+                id_student:
+                    referencedColumnName: id
+            orphanRemoval: false
+    lifecycleCallbacks: {  }

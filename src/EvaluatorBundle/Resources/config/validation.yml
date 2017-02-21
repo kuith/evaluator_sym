@@ -1,0 +1,8 @@
+EvaluatorBundle\Entity\Course:
+    properties:
+        name:
+            - NotBlank: {message: "El nombre no puede estar vacío"}
+            - Length:
+                min: 2
+                minMessage: "El nombre debe tener al menos dos caracteres"
+        

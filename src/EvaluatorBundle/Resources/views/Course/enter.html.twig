@@ -1,0 +1,32 @@
+{% extends "EvaluatorBundle::layout.html.twig" %}
+
+{% block content %}
+    <div class="col-lg-6">
+        <div class="card-block text-nowrap">
+            Curso: {{course.name}}
+        </div>
+    </div>
+
+    <table class="table table-striped">
+        <thead class="thead-inverse">
+            <tr>
+                <th>Nombre Alumno</th>
+                    {% for partial in partials %}
+                    <th>
+                        {{partial.name}}
+                        </td>
+                    {% endfor %}
+            </tr>
+        </thead>
+        <tbody>
+            {% for student in students %}
+                <tr>
+                    <td>
+                        {{student.name}}
+                    </td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <div class="clearfix"></div>
+{% endblock %}

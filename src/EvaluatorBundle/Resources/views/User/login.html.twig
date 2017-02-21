@@ -1,0 +1,30 @@
+{% extends "EvaluatorBundle::layout.html.twig" %}
+{% block content %}
+    <br/>
+    <div class="col-lg-4">
+        <h4>Identif&iacute;cate</h4>
+        <hr/>
+        <form action="{{path("login_check")}}" method="post">
+            <label>Nombre:</label>
+            <input type="text" id="username" name="_username" value="{{last_username}}" class="form-control" />
+            <br/>
+            <label>Password:</label>
+            <input type="password" id="password" name="_password" class="form-control" />
+            <br/>
+            <input type="submit" value="Entrar" class="btn btn-success">
+            <input type="hidden" name="_target_path" value="/login"> <!-- Para que no nos lleve a la raíz del proyecto (compor. por defecto)-->
+            <br/>
+        </form>
+    </div>
+    <div class="col-lg-4">
+        <h4>Reg&iacute;strate</h4>
+        <hr/>
+            {% for message in app.session.flashbag().get('status') %}
+                <div class="alert alert-success"> {{message}}</div>
+            {% endfor %}
+            
+            {{form_start(form, {'action':'', 'method' : 'POST'})}}
+            {{form_end(form)}}
+    </div>
+    <div class="clearfix"></div>
+{% endblock %}
