@@ -30,5 +30,5 @@ evaluator_enter_course:
     
 evaluator_index_marks:
     path: /marks/index/{idCourse}{idStudent}{idPartial}
-    defaults: {_controller: EvaluatorBundle:Mark_index }
+    defaults: {_controller: EvaluatorBundle:Mark:courseMarks }
     
