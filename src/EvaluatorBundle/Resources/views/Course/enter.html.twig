@@ -26,8 +26,9 @@
                     </td>
                     {% for partial in partials %}
                         <td>
-                            {{ include("EvaluatorBundle:Mark:grid_marks.html.twig" , { "idCourse": course.id, "idStudent": student.id, "idPartial": partial.id}) }}
-                            {{ render(controller ( 'EvaluatorBundle:Mark:courseMarks' , { "idCourse": course.id, "idStudent": student.id, "idPartial": partial.id})) }}
+                            {#{{ include("EvaluatorBundle:Mark:grid_marks.html.twig" , { "idCourse": course.id, "idStudent": student.id, "idPartial": partial.id}) }}#}
+                            {{ render(controller ( 'EvaluatorBundle:Mark:courseMarks' ,
+                                 { 'idCourse': course.id, 'idStudent': student.id, 'idPartial': partial.id})) }}
                         </td>
                     {% endfor %}
                 </tr>

@@ -20,9 +20,12 @@ class MarkController extends Controller {
 		$em = $this->getDoctrine()->getManager();
 		$marks_repo = $em->getRepository("EvaluatorBundle:Mark");
 		$query = $marks_repo->createQueryBuilder('m')
-				->where('m.idCourse = :$idCourse')
-				->andWhere('m.idStudent = :$idStudent')
-				->andWhere('m.idPartial = :$idPartial')
+				->where('m.idCourse = ?1')
+				->andWhere('m.idStudent = ?2')
+				->andWhere('m.idPartial = ?3')
+				->setParameter(1, $idCourse)
+				->setParameter(2, $idStudent)
+				->setParameter(3, $idPartial)
 				->getQuery();
 		$mark = $query->setMaxResults(1)->getOneOrNullResult();
 
