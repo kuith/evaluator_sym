@@ -15,23 +15,23 @@ class __TwigTemplate_aa5ebc395c6a5230d389afd0ae5ee056ac10b00b17f43a059fd4f454ae3
 
     protected function doDisplay(array $context, array $blocks = array())
     {
-        $__internal_ad28d60f44b9eedd48ba79f3392959b4eac6fb1874bdb36054a82aba5a0fcf7f = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
-        $__internal_ad28d60f44b9eedd48ba79f3392959b4eac6fb1874bdb36054a82aba5a0fcf7f->enter($__internal_ad28d60f44b9eedd48ba79f3392959b4eac6fb1874bdb36054a82aba5a0fcf7f_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EvaluatorBundle:Mark:grid_marks.html.twig"));
+        $__internal_4d5926dab11e423ee3150931ba2a1b768842e1ff4bc00c4d6758be35a477b14e = $this->env->getExtension("Symfony\\Bundle\\WebProfilerBundle\\Twig\\WebProfilerExtension");
+        $__internal_4d5926dab11e423ee3150931ba2a1b768842e1ff4bc00c4d6758be35a477b14e->enter($__internal_4d5926dab11e423ee3150931ba2a1b768842e1ff4bc00c4d6758be35a477b14e_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EvaluatorBundle:Mark:grid_marks.html.twig"));
 
-        $__internal_2964264dbea236abe544d11c65d21fd3aea5a08930d79b9fdf6aee3ce5d127c1 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
-        $__internal_2964264dbea236abe544d11c65d21fd3aea5a08930d79b9fdf6aee3ce5d127c1->enter($__internal_2964264dbea236abe544d11c65d21fd3aea5a08930d79b9fdf6aee3ce5d127c1_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EvaluatorBundle:Mark:grid_marks.html.twig"));
+        $__internal_d5c3c468988692bfb53072ffe251b1b80fc571643b04e9d31e5075d347571344 = $this->env->getExtension("Symfony\\Bridge\\Twig\\Extension\\ProfilerExtension");
+        $__internal_d5c3c468988692bfb53072ffe251b1b80fc571643b04e9d31e5075d347571344->enter($__internal_d5c3c468988692bfb53072ffe251b1b80fc571643b04e9d31e5075d347571344_prof = new Twig_Profiler_Profile($this->getTemplateName(), "template", "EvaluatorBundle:Mark:grid_marks.html.twig"));
 
         // line 1
         if (((isset($context["mark"]) ? $context["mark"] : $this->getContext($context, "mark")) == null)) {
             // line 2
             echo "    ";
-            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["mark"]) ? $context["mark"] : $this->getContext($context, "mark")), "grade", array()), "html", null, true);
+            echo 0;
             echo "
 ";
         } else {
             // line 4
             echo "    ";
-            echo 0;
+            echo twig_escape_filter($this->env, $this->getAttribute((isset($context["mark"]) ? $context["mark"] : $this->getContext($context, "mark")), "grade", array()), "html", null, true);
             echo "
 ";
         }
@@ -39,10 +39,10 @@ class __TwigTemplate_aa5ebc395c6a5230d389afd0ae5ee056ac10b00b17f43a059fd4f454ae3
         echo "
 ";
         
-        $__internal_ad28d60f44b9eedd48ba79f3392959b4eac6fb1874bdb36054a82aba5a0fcf7f->leave($__internal_ad28d60f44b9eedd48ba79f3392959b4eac6fb1874bdb36054a82aba5a0fcf7f_prof);
+        $__internal_4d5926dab11e423ee3150931ba2a1b768842e1ff4bc00c4d6758be35a477b14e->leave($__internal_4d5926dab11e423ee3150931ba2a1b768842e1ff4bc00c4d6758be35a477b14e_prof);
 
         
-        $__internal_2964264dbea236abe544d11c65d21fd3aea5a08930d79b9fdf6aee3ce5d127c1->leave($__internal_2964264dbea236abe544d11c65d21fd3aea5a08930d79b9fdf6aee3ce5d127c1_prof);
+        $__internal_d5c3c468988692bfb53072ffe251b1b80fc571643b04e9d31e5075d347571344->leave($__internal_d5c3c468988692bfb53072ffe251b1b80fc571643b04e9d31e5075d347571344_prof);
 
     }
 
@@ -72,9 +72,9 @@ class __TwigTemplate_aa5ebc395c6a5230d389afd0ae5ee056ac10b00b17f43a059fd4f454ae3
     public function getSourceContext()
     {
         return new Twig_Source("{% if mark == null %}
-    {{mark.grade}}
+    {{0}}
 {% else %}
-    {{ 0 }}
+    {{ mark.grade }}
 {% endif %}
 
 ", "EvaluatorBundle:Mark:grid_marks.html.twig", "C:\\wamp64\\www\\evaluator_sym\\src\\EvaluatorBundle/Resources/views/Mark/grid_marks.html.twig");
