@@ -18,7 +18,7 @@ class Student
     private $name;
 
     /**
-     * @var \EvaluatorBundle\Entity\Courses
+     * @var \EvaluatorBundle\Entity\Course
      */
     private $idCourse;
 
@@ -60,11 +60,11 @@ class Student
     /**
      * Set idCourse
      *
-     * @param \EvaluatorBundle\Entity\Courses $idCourse
+     * @param \EvaluatorBundle\Entity\Course $idCourse
      *
      * @return Student
      */
-    public function setIdCourse(\EvaluatorBundle\Entity\Courses $idCourse = null)
+    public function setIdCourse(\EvaluatorBundle\Entity\Course $idCourse = null)
     {
         $this->idCourse = $idCourse;
 
@@ -74,7 +74,7 @@ class Student
     /**
      * Get idCourse
      *
-     * @return \EvaluatorBundle\Entity\Courses
+     * @return \EvaluatorBundle\Entity\Course
      */
     public function getIdCourse()
     {

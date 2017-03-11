@@ -13,7 +13,7 @@
                 <th>Nombre Alumno</th>
                     {% for partial in partials %}
                     <th>
-                        {{partial.name}}
+                        {{partial.name ~ ' (' ~ partial.weight ~ ')'}}
                     </th>
                 {% endfor %}
             </tr>
@@ -25,12 +25,15 @@
                         {{student.name}}
                     </td>
                     {% for partial in partials %}
-                        <td>
-                            {#{{ include("EvaluatorBundle:Mark:grid_marks.html.twig" , { "idCourse": course.id, "idStudent": student.id, "idPartial": partial.id}) }}#}
-                            {{ render(controller ( 'EvaluatorBundle:Mark:courseMarks' ,
-                                 { 'idCourse': course.id, 'idStudent': student.id, 'idPartial': partial.id})) }}
-                        </td>
+                        {% for mark in marks %}
+                            {% if mark.idPartial.id == partial.id  and  mark.idStudent.id == student.id %}
+                                <td>
+                                    {{mark.grade}}
+                                </td>
+                            {% endif %}
+                        {% endfor %}
                     {% endfor %}
+
                 </tr>
             {% endfor %}
         </tbody>

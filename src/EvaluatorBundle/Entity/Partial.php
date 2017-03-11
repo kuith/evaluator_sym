@@ -18,7 +18,7 @@ class Partial
     private $weight;
 
     /**
-     * @var \EvaluatorBundle\Entity\Courses
+     * @var \EvaluatorBundle\Entity\Course
      */
     private $idCourse;
 	
@@ -62,11 +62,11 @@ class Partial
     /**
      * Set idCourse
      *
-     * @param \EvaluatorBundle\Entity\Courses $idCourse
+     * @param \EvaluatorBundle\Entity\Course $idCourse
      *
      * @return Partial
      */
-    public function setIdCourse(\EvaluatorBundle\Entity\Courses $idCourse = null)
+    public function setIdCourse(\EvaluatorBundle\Entity\Course $idCourse = null)
     {
         $this->idCourse = $idCourse;
 
@@ -76,7 +76,7 @@ class Partial
     /**
      * Get idCourse
      *
-     * @return \EvaluatorBundle\Entity\Courses
+     * @return \EvaluatorBundle\Entity\Course
      */
     public function getIdCourse()
     {

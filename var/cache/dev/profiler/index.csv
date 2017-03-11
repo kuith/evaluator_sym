@@ -139,3 +139,9 @@ ae22b5,127.0.0.1,GET,http://localhost/evaluator_sym/web/app_dev.php/_fragment?_p
 091fe7,127.0.0.1,GET,http://localhost/evaluator_sym/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DEvaluatorBundle%253AMark%253AcourseMarks,1488838087,8252b9,200
 20901e,127.0.0.1,GET,http://localhost/evaluator_sym/web/app_dev.php/_fragment?_path=_format%3Dhtml%26_locale%3Den%26_controller%3DEvaluatorBundle%253AMark%253AcourseMarks,1488838087,8252b9,200
 8252b9,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1488838087,,200
+d5c8fc,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses,1489262381,,200
+0d0bb0,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1489262389,18f105,200
+18f105,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1489262389,,500
+0438c8,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1489262488,,200
+c05aa6,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1489262549,,200
+116bc8,::1,GET,http://localhost/evaluator_sym/web/app_dev.php/courses/enter/1,1489262565,,200
