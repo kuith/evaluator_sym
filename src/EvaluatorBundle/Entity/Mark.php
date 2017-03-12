@@ -23,12 +23,12 @@ class Mark
     private $idCourse;
 
     /**
-     * @var \EvaluatorBundle\Entity\Partials
+     * @var \EvaluatorBundle\Entity\Partial
      */
     private $idPartial;
 
     /**
-     * @var \EvaluatorBundle\Entity\Students
+     * @var \EvaluatorBundle\Entity\Student
      */
     private $idStudent;
 
@@ -70,11 +70,11 @@ class Mark
     /**
      * Set idCourse
      *
-     * @param \EvaluatorBundle\Entity\Courses $idCourse
+     * @param \EvaluatorBundle\Entity\Course $idCourse
      *
      * @return Mark
      */
-    public function setIdCourse(\EvaluatorBundle\Entity\Courses $idCourse = null)
+    public function setIdCourse(\EvaluatorBundle\Entity\Course $idCourse = null)
     {
         $this->idCourse = $idCourse;
 
@@ -84,7 +84,7 @@ class Mark
     /**
      * Get idCourse
      *
-     * @return \EvaluatorBundle\Entity\Courses
+     * @return \EvaluatorBundle\Entity\Course
      */
     public function getIdCourse()
     {
@@ -94,11 +94,11 @@ class Mark
     /**
      * Set idPartial
      *
-     * @param \EvaluatorBundle\Entity\Partials $idPartial
+     * @param \EvaluatorBundle\Entity\Partial $idPartial
      *
      * @return Mark
      */
-    public function setIdPartial(\EvaluatorBundle\Entity\Partials $idPartial = null)
+    public function setIdPartial(\EvaluatorBundle\Entity\Partial $idPartial = null)
     {
         $this->idPartial = $idPartial;
 
@@ -108,7 +108,7 @@ class Mark
     /**
      * Get idPartial
      *
-     * @return \EvaluatorBundle\Entity\Partials
+     * @return \EvaluatorBundle\Entity\Partial
      */
     public function getIdPartial()
     {
@@ -118,11 +118,11 @@ class Mark
     /**
      * Set idStudent
      *
-     * @param \EvaluatorBundle\Entity\Students $idStudent
+     * @param \EvaluatorBundle\Entity\Student $idStudent
      *
      * @return Mark
      */
-    public function setIdStudent(\EvaluatorBundle\Entity\Students $idStudent = null)
+    public function setIdStudent(\EvaluatorBundle\Entity\Student $idStudent = null)
     {
         $this->idStudent = $idStudent;
 
@@ -132,7 +132,7 @@ class Mark
     /**
      * Get idStudent
      *
-     * @return \EvaluatorBundle\Entity\Students
+     * @return \EvaluatorBundle\Entity\Student
      */
     public function getIdStudent()
     {

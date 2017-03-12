@@ -16,17 +16,16 @@ class CourseController extends Controller {
 		$this->session = new Session();
 	}
 
-	public function indexAction(){
+	public function indexAction() {
 		$em = $this->getDoctrine()->getManager();
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
 		$courses = $course_repo->findAll();
-		
+
 		return $this->render("EvaluatorBundle:Course:index.html.twig", array(
-			"courses" => $courses	
+					"courses" => $courses
 		));
 	}
-	
-	
+
 	public function addAction(Request $request) {
 
 		$course = new Course();
@@ -57,39 +56,69 @@ class CourseController extends Controller {
 			return $this->redirectToRoute("evaluator_index_courses");
 		}
 
-
 		return $this->render("EvaluatorBundle:Course:add.html.twig", array(
-			"form" => $form->createView()
+					"form" => $form->createView()
 		));
 	}
-	
-	public function deleteAction($id){
+
+	public function deleteAction($id) {
 		$em = $this->getDoctrine()->getManager();
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
-		
+
 		$course = $course_repo->find($id);
 		$em->remove($course);
 		$em->flush();
-		
+
 		return $this->redirectToRoute("evaluator_index_courses");
 	}
-	
-	public function enterAction($id){
+
+	public function enterAction($id) {
 		$em = $this->getDoctrine()->getManager();
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
-		
+
 		$course = $course_repo->find($id);
 		$students = $course->getStudent();
-		$partials = $course->getPartial();
+//		$partials = $course->getPartial();
+
+		$query_partials_no_final = $em->CreateQuery("
+			SELECT p FROM EvaluatorBundle:Partial p
+			WHERE p.idCourse = :idCourse AND p.name != :name
+			");
+		$query_partials_no_final->setParameters(array('idCourse' => $id,'name' => 'Final'));
+		$partials_no_final = $query_partials_no_final->getResult();
+
+		$query_partial_final = $em->CreateQuery("
+			SELECT p FROM EvaluatorBundle:Partial p
+			WHERE p.idCourse = :idCourse AND p.name = :name
+			");
+		$query_partial_final->setParameters(array('idCourse' => $id,'name' => 'Final'));
+		$partial_final = $query_partial_final->getResult();
 		
-		$marks_repo = $em->getRepository("EvaluatorBundle:Mark");
-		$marks = $marks_repo->findByidCourse($id);
-		
+		$query_marks_no_final = $em->CreateQuery("
+			SELECT m FROM EvaluatorBundle:Mark m
+			WHERE m.idCourse = :idCourse AND m.idPartial != :id
+			");
+		$query_marks_no_final->setParameters(array('idCourse' => $id,'id' => $partial_final[0]->getId()));
+		$marks_no_final = $query_marks_no_final->getResult();
+	
+		$query_marks_final = $em->CreateQuery("
+			SELECT m FROM EvaluatorBundle:Mark m
+			WHERE m.idCourse = :idCourse AND m.idPartial = :id
+			");
+		$query_marks_final->setParameters(array('idCourse' => $id,'id' => $partial_final[0]->getId()));
+		$marks_final = $query_marks_final->getResult();
+
+//		$marks_repo = $em->getRepository("EvaluatorBundle:Mark");
+//		$marks = $marks_repo->findByidCourse($id);
+
 		return $this->render("EvaluatorBundle:Course:enter.html.twig", ["course" => $course,
-			"students" => $students,
-			"partials" => $partials,
-			"marks" => $marks
-		
+					"students" => $students,
+//					"partials" => $partials,
+					"partials_no_final" => $partials_no_final,
+					"partial_final" => $partial_final,
+					"marks_no_final"=>$marks_no_final,
+					"marks_final"=>$marks_final
+//					"marks" => $marks
 		]);
 	}
 

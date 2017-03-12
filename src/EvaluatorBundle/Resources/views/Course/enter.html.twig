@@ -11,9 +11,14 @@
         <thead class="thead-inverse">
             <tr>
                 <th>Nombre Alumno</th>
-                    {% for partial in partials %}
+                    {% for partial_no_final in partials_no_final %}
                     <th>
-                        {{partial.name ~ ' (' ~ partial.weight ~ ')'}}
+                        {{partial_no_final.name ~ ' (' ~ partial_no_final.weight ~ ')'}}
+                    </th>
+                {% endfor %}
+                {% for final in partial_final %}
+                    <th>
+                        {{final.name }}
                     </th>
                 {% endfor %}
             </tr>
@@ -24,16 +29,25 @@
                     <td>
                         {{student.name}}
                     </td>
-                    {% for partial in partials %}
-                        {% for mark in marks %}
-                            {% if mark.idPartial.id == partial.id  and  mark.idStudent.id == student.id %}
+                    {% for partial_no_final in partials_no_final %}
+                        {% for mark_no_final in marks_no_final %}
+                            {% if mark_no_final.idPartial.id == partial_no_final.id  and  mark_no_final.idStudent.id == student.id %}
                                 <td>
-                                    {{mark.grade}}
+                                    {{mark_no_final.grade}}
                                 </td>
                             {% endif %}
                         {% endfor %}
                     {% endfor %}
-
+  
+                    {% for final in partial_final %}
+                        {% for mark_final in marks_final %}
+                            {% if mark_final.idPartial.id == final.id  and  mark_final.idStudent.id == student.id %}
+                                <td>
+                                    {{mark_final.grade}}
+                                </td>
+                            {% endif %}
+                        {% endfor %}
+                    {% endfor %}
                 </tr>
             {% endfor %}
         </tbody>
