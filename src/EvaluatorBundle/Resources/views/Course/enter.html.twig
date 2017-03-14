@@ -4,6 +4,7 @@
     <div class="col-lg-6">
         <div class="card-block text-nowrap">
             Curso: {{course.name}}
+            <a class="nav-item nav-link" href="{{path("evaluator_add_partial", {"id":course.id})}}" id="nuevoParcialNavItem">Nuevo Parcial</a>
         </div>
     </div>
 

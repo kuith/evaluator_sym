@@ -32,3 +32,7 @@ evaluator_index_marks:
     path: /marks/index/{idCourse}{idStudent}{idPartial}
     defaults: {_controller: EvaluatorBundle:Mark:courseMarks }
     
+evaluator_add_partial:
+    path: /partials/add/{id}
+    defaults: { _controller: EvaluatorBundle:Partial:add }
+    
