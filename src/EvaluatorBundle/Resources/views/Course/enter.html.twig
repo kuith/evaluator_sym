@@ -1,13 +1,17 @@
 {% extends "EvaluatorBundle::layout.html.twig" %}
 
 {% block content %}
-    <div class="col-lg-6">
-        <div class="card-block text-nowrap">
-            Curso: {{course.name}}
-            <a class="nav-item nav-link" href="{{path("evaluator_add_partial", {"id":course.id})}}" id="nuevoParcialNavItem">Nuevo Parcial</a>
-        </div>
-    </div>
-
+    
+         <nav class="navbar navbar-dark bg-seconry">
+             <span class="nav navbar-nav">
+                 Curso: {{course.name}}
+             </span>
+             <span class="nav navbar-nav float-md-right">
+                 <a class="btn btn-secondary text-muted" href="{{path("evaluator_add_partial", {"id":course.id})}}" id="nuevoParcialBtn">Nuevo Parcial</a>
+                 <a class="btn btn-secondary text-muted" href="{{path("evaluator_delete_partial", {"id":course.id})}}" id="eliminarParcialBtn">Eliminar Parcial</a>
+             </span>
+         </nav>
+             
     <table class="table table-striped">
         <thead class="thead-inverse">
             <tr>

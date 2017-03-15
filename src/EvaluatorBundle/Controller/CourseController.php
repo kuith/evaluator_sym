@@ -78,7 +78,6 @@ class CourseController extends Controller {
 
 		$course = $course_repo->find($id);
 		$students = $course->getStudent();
-//		$partials = $course->getPartial();
 
 		$query_partials_no_final = $em->CreateQuery("
 			SELECT p FROM EvaluatorBundle:Partial p
@@ -108,17 +107,12 @@ class CourseController extends Controller {
 		$query_marks_final->setParameters(array('idCourse' => $id,'id' => $partial_final[0]->getId()));
 		$marks_final = $query_marks_final->getResult();
 
-//		$marks_repo = $em->getRepository("EvaluatorBundle:Mark");
-//		$marks = $marks_repo->findByidCourse($id);
-
 		return $this->render("EvaluatorBundle:Course:enter.html.twig", ["course" => $course,
 					"students" => $students,
-//					"partials" => $partials,
 					"partials_no_final" => $partials_no_final,
 					"partial_final" => $partial_final,
 					"marks_no_final"=>$marks_no_final,
 					"marks_final"=>$marks_final
-//					"marks" => $marks
 		]);
 	}
 

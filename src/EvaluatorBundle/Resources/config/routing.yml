@@ -36,3 +36,7 @@ evaluator_add_partial:
     path: /partials/add/{id}
     defaults: { _controller: EvaluatorBundle:Partial:add }
     
+evaluator_delete_partial:
+    path: /partials/delete/{id}
+    defaults: { _controller: EvaluatorBundle:Partial:delete }
+    
