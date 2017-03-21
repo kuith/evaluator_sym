@@ -1,5 +1,6 @@
 EvaluatorBundle\Entity\Course:
     type: entity
+    repositoryClass: EvaluatorBundle\Repository\CourseRepository
     table: courses
     id:
         id:

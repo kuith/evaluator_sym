@@ -18,11 +18,10 @@ class CourseController extends Controller {
 
 	public function indexAction() {
 		$em = $this->getDoctrine()->getManager();
-		$course_repo = $em->getRepository("EvaluatorBundle:Course");
-		$courses = $course_repo->findAll();
+		$course_repo = $em->getRepository("EvaluatorBundle:Course")->findAll();
 
 		return $this->render("EvaluatorBundle:Course:index.html.twig", array(
-					"courses" => $courses
+					"courses" => $course_repo
 		));
 	}
 
@@ -73,6 +72,10 @@ class CourseController extends Controller {
 	}
 
 	public function enterAction($id) {
+//		Ejemplo---->borrar
+//		$em = $this->getDoctrine()->getManager();
+//		$products = $em->getRepository('AppBundle:Product')
+//    ->findAllOrderedByName();
 		$em = $this->getDoctrine()->getManager();
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
 

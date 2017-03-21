@@ -1,5 +1,6 @@
 EvaluatorBundle\Entity\Partial:
     type: entity
+    repositoryClass: EvaluatorBundle\Repository\PartialRepository
     table: partials
     indexes:
         fk_partials_courses:

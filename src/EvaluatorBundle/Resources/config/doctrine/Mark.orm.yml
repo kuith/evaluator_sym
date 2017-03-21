@@ -1,5 +1,6 @@
 EvaluatorBundle\Entity\Mark:
     type: entity
+    repositoryClass: EvaluatorBundle\Repository\MarkRepository
     table: marks
     indexes:
         fk_marks_courses:
