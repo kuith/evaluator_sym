@@ -37,6 +37,7 @@ class PartialController extends Controller {
 				$partial->setIdCourse($course);
 				$partial->setWeight($form->get("weight")->getData());
 
+//			$em->getRepository("EvaluatorBundle:Partial")->addPartial($form->get("name")->getData(),$course, $form->get("weight")->getData());
 				$em->persist($partial);
 				$flush = $em->flush();
 
@@ -45,6 +46,8 @@ class PartialController extends Controller {
 				} else {
 					$status = "Se ha producido un error al crear el parcial!!";
 				}
+
+				
 			} else {
 				$status = "El parcial no se ha podido dar de alta.";
 			}

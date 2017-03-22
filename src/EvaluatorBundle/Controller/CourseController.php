@@ -72,50 +72,24 @@ class CourseController extends Controller {
 	}
 
 	public function enterAction($id) {
-//		Ejemplo---->borrar
-//		$em = $this->getDoctrine()->getManager();
-//		$products = $em->getRepository('AppBundle:Product')
-//    ->findAllOrderedByName();
 		$em = $this->getDoctrine()->getManager();
 		$course_repo = $em->getRepository("EvaluatorBundle:Course");
-
 		$course = $course_repo->find($id);
 		$students = $course->getStudent();
 
-		$query_partials_no_final = $em->CreateQuery("
-			SELECT p FROM EvaluatorBundle:Partial p
-			WHERE p.idCourse = :idCourse AND p.name != :name
-			");
-		$query_partials_no_final->setParameters(array('idCourse' => $id,'name' => 'Final'));
-		$partials_no_final = $query_partials_no_final->getResult();
-
-		$query_partial_final = $em->CreateQuery("
-			SELECT p FROM EvaluatorBundle:Partial p
-			WHERE p.idCourse = :idCourse AND p.name = :name
-			");
-		$query_partial_final->setParameters(array('idCourse' => $id,'name' => 'Final'));
-		$partial_final = $query_partial_final->getResult();
+		$partials_no_final = $em->getRepository("EvaluatorBundle:Partial")->findPartialsNoFinal($id);
+		$partial_final = $em->getRepository("EvaluatorBundle:Partial")->findPartialsFinal($id);
 		
-		$query_marks_no_final = $em->CreateQuery("
-			SELECT m FROM EvaluatorBundle:Mark m
-			WHERE m.idCourse = :idCourse AND m.idPartial != :id
-			");
-		$query_marks_no_final->setParameters(array('idCourse' => $id,'id' => $partial_final[0]->getId()));
-		$marks_no_final = $query_marks_no_final->getResult();
-	
-		$query_marks_final = $em->CreateQuery("
-			SELECT m FROM EvaluatorBundle:Mark m
-			WHERE m.idCourse = :idCourse AND m.idPartial = :id
-			");
-		$query_marks_final->setParameters(array('idCourse' => $id,'id' => $partial_final[0]->getId()));
-		$marks_final = $query_marks_final->getResult();
+		$marks_no_final = $em->getRepository("EvaluatorBundle:Mark")->findMarksNoFinal($id,$partial_final);
+		$marks_final = $em->getRepository("EvaluatorBundle:Mark")->findMarksFinal($id,$partial_final);
 
-		return $this->render("EvaluatorBundle:Course:enter.html.twig", ["course" => $course,
-					"students" => $students,
-					"partials_no_final" => $partials_no_final,
-					"partial_final" => $partial_final,
-					"marks_no_final"=>$marks_no_final,
-					"marks_final"=>$marks_final
+		return $this->render("EvaluatorBundle:Course:enter.html.twig", [
+			"course" => $course,
+			"students" => $students,
+			"partials_no_final" => $partials_no_final,
+			"partial_final" => $partial_final,
+			"marks_no_final"=>$marks_no_final,
+			"marks_final"=>$marks_final
 		]);
 	}
 
