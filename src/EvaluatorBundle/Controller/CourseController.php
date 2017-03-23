@@ -36,12 +36,7 @@ class CourseController extends Controller {
 			if ($form->isValid()) {
 
 				$em = $this->getDoctrine()->getManager();
-
-				$course = new Course();
-				$course->setName($form->get("name")->getData());
-
-				$em->persist($course);
-				$flush = $em->flush();
+				$flush = $em->getRepository("EvaluatorBundle:Course")->addCourse($form->get("name")->getData());
 
 				if ($flush == null) {
 					$status = "El curso se ha dado de alta correctamente.";

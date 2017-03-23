@@ -26,14 +26,29 @@ class PartialRepository extends EntityRepository{
 			->getResult();
 	}
 	
-//	public function addPartial($name, $course, $weight){
-//		$this->getEntityManager();
-//		
-//		$partial = new Partial();
-//		$partial->setName($name);
-//		$partial->setIdCourse($course);
-//		$partial->setWeight($weight);
-//		return $partial;
-//	}
+	public function addPartialFinal($idCourse){
+		$em = $this->getEntityManager();
+		$partial = new Partial();
+		$partial->setName("Final");
+		$partial->setIdCourse($idCourse);
+		$partial->setWeight(100);
+		
+		$em->persist($partial);
+		$flush = $em->flush();
+		
+		return $flush;
+	}
+	
+	public function addPArtial($idCourse, $name, $weight){
+		$em = $this->getEntityManager();
+		$partial = new Partial();
+		$partial->setName($name);
+		$partial->setIdCourse($idCourse);
+		$partial->setWeight($weight);
+		
+		$em->persist($partial);
+		$flush = $em->flush();
+	}
 	
 }
+
