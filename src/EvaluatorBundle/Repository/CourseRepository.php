@@ -18,4 +18,14 @@ class CourseRepository extends EntityRepository{
 
 		return $flush;
 	}
+	
+	public function findIdCourseByName($name){
+		return $this->getEntityManager()
+			->createQuery(
+				"SELECT c.id FROM EvaluatorBundle:Course c
+				WHERE c.name = :name"
+			)
+			->setParameters(array('name' => $name))
+			->getResult();
+	}
 }

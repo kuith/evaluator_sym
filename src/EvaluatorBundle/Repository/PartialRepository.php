@@ -36,7 +36,7 @@ class PartialRepository extends EntityRepository{
 		$em->persist($partial);
 		$flush = $em->flush();
 		
-		return $flush;
+		//return $flush;
 	}
 	
 	public function addPArtial($idCourse, $name, $weight){

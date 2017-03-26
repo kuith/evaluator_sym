@@ -4,6 +4,7 @@ namespace EvaluatorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use EvaluatorBundle\Entity\Course;
+use EvaluatorBundle\Entity\Partial;
 use EvaluatorBundle\Form\CourseType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
@@ -39,6 +40,8 @@ class CourseController extends Controller {
 				$flush = $em->getRepository("EvaluatorBundle:Course")->addCourse($form->get("name")->getData());
 
 				if ($flush == null) {
+					$idCourse = $em->getRepository("EvaluatorBundle:Course")->findOneByname($form->get("name")->getData());
+					$em->getRepository("EvaluatorBundle:Partial")->addPartialFinal($idCourse);
 					$status = "El curso se ha dado de alta correctamente.";
 				} else {
 					$status = "Se ha producido un error al crear el curso!!";
