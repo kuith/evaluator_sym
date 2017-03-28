@@ -28,4 +28,20 @@ class CourseRepository extends EntityRepository{
 			->setParameters(array('name' => $name))
 			->getResult();
 	}
+	public function findCourseById($idCourse){
+		return $this->getEntityManager()
+			->createQuery(
+				"SELECT c FROM EvaluatorBundle:Course c
+				WHERE c.id = :idCourse"
+			)
+			->setParameters(array('idCourse' => $idCourse))
+			->getResult();
+	}
+	
+	public function deleteCourse($idCourse){
+		$em = $this->getEntityManager();
+		$course = $this->findCourseById($idCourse);
+		$em->remove($course[0]);
+		$em->flush();
+	}
 }

@@ -4,7 +4,6 @@ namespace EvaluatorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use EvaluatorBundle\Entity\Course;
-use EvaluatorBundle\Entity\Partial;
 use EvaluatorBundle\Form\CourseType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
@@ -59,13 +58,11 @@ class CourseController extends Controller {
 	}
 
 	public function deleteAction($id) {
+		
 		$em = $this->getDoctrine()->getManager();
-		$course_repo = $em->getRepository("EvaluatorBundle:Course");
-
-		$course = $course_repo->find($id);
-		$em->remove($course);
-		$em->flush();
-
+		$em ->getRepository("EvaluatorBundle:Partial")->deletePartialsCourse($id);
+		$em ->getRepository("EvaluatorBundle:Course")->deleteCourse($id);
+		
 		return $this->redirectToRoute("evaluator_index_courses");
 	}
 

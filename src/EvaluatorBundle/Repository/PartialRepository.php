@@ -34,9 +34,7 @@ class PartialRepository extends EntityRepository{
 		$partial->setWeight(100);
 		
 		$em->persist($partial);
-		$flush = $em->flush();
-		
-		//return $flush;
+		$em->flush();
 	}
 	
 	public function addPArtial($idCourse, $name, $weight){
@@ -47,8 +45,26 @@ class PartialRepository extends EntityRepository{
 		$partial->setWeight($weight);
 		
 		$em->persist($partial);
-		$flush = $em->flush();
+		$em->flush();
 	}
 	
+	public function findPartialsByCourse($idCourse){
+		return $this->getEntityManager()
+			->createQuery(
+				"SELECT p FROM EvaluatorBundle:Partial p
+				WHERE p.idCourse = :idCourse"
+			)
+			->setParameters(array('idCourse' => $idCourse))
+			->getResult();
+	}
+	
+	public function deletePartialsCourse($idCourse){
+		$em = $this->getEntityManager();
+		$partials = $this->findPartialsByCourse($idCourse);
+		foreach ($partials as $partial){
+			$em->remove($partial);
+		}
+		
+		$em->flush();
+	}
 }
-

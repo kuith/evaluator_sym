@@ -3,9 +3,7 @@ namespace EvaluatorBundle\Repository;
 
 use Doctrine\ORM\EntityRepository;
 
-
 class MarkRepository extends EntityRepository{
-	//put your code here
 	public function findMarksNoFinal($idCourse, $partialFinal){
 		return $this->getEntityManager()
 			->createQuery(
@@ -24,7 +22,8 @@ class MarkRepository extends EntityRepository{
 			)
 			->setParameters(array('idCourse' => $idCourse,'id' => $partialFinal[0]->getId()))
 			->getResult();
-		
 	}
+	
+	
 }
 
