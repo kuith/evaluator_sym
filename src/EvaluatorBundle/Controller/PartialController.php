@@ -52,9 +52,11 @@ class PartialController extends Controller {
 		));
 	}
 	
-	public function deleteAction(){
-		
+	public function deleteAction($id){
+		$em = $this->getDoctrine()->getMAnager();
+		$em ->getRepository("EvaluatorBundle:Partial")->deleteOnePartial($id);
+		return $this->redirectToRoute("evaluator_index_course");
 	}
 }
 
-
+//		return $this->redirectToRoute("evaluator_index_courses");

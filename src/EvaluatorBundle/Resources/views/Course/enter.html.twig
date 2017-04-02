@@ -19,6 +19,7 @@
                     {% for partial_no_final in partials_no_final %}
                     <th>
                         {{partial_no_final.name ~ ' (' ~ partial_no_final.weight ~ ')'}}
+                        <a href="{{path("evaluator_delete_partial", {"id":partial_no_final.id})}}"><img src="{{ asset('images/icon_delete_white.png') }}"></a>
                     </th>
                 {% endfor %}
                 {% for final in partial_final %}
@@ -37,7 +38,7 @@
                     {% for partial_no_final in partials_no_final %}
                         {% for mark_no_final in marks_no_final %}
                             {% if mark_no_final.idPartial.id == partial_no_final.id  and  mark_no_final.idStudent.id == student.id %}
-                                <td>
+                                <td contenteditable>
                                     {{mark_no_final.grade}}
                                 </td>
                             {% endif %}

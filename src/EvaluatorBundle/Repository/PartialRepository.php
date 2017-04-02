@@ -67,4 +67,20 @@ class PartialRepository extends EntityRepository{
 		
 		$em->flush();
 	}
+	
+	public function deleteOnePartial($idPartial){
+		$em = $this->getEntityManager();
+		$partial = $em->findOneById($idPartial);
+		
+		if (!$partial) {
+	        throw $this->createNotFoundException(
+			    'No se ha encontrado el parcial de id: '.$idPartial
+		    );
+	    }
+
+		$em->remove($partial[0]);
+		$em->flush();
+	}
+
+	
 }
