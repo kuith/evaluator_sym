@@ -70,7 +70,14 @@ class PartialRepository extends EntityRepository{
 	
 	public function deleteOnePartial($idPartial){
 		$em = $this->getEntityManager();
-		$partial = $em->findOneById($idPartial);
+		//$partial = $em->findOneById($idPartial);
+		$query = $em->createQuery(
+			"SELECT p FROM EvaluatorBundle:Partial p
+			WHERE p.id = :idPartial"
+		)
+		->setParameters(array('idPartial' => $idPartial));
+		//$partial = $query->getResult();
+		$partial = $query->setMaxResults(1)->getOneOrNullResult();
 		
 		if (!$partial) {
 	        throw $this->createNotFoundException(
@@ -78,9 +85,11 @@ class PartialRepository extends EntityRepository{
 		    );
 	    }
 
-		$em->remove($partial[0]);
+		$em->remove($partial);
+//		$em->remove($partial[0]);
 		$em->flush();
 	}
 
-	
+	//$partial = $query->setMaxResults(1)->getOneOrNullResult();
 }
+
