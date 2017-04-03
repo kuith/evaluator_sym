@@ -7,7 +7,6 @@ use EvaluatorBundle\Entity\Partial;
 use EvaluatorBundle\Form\PartialType;
 use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\HttpFoundation\Request;
-use EvaluatorBundle\Entity\Course;
 
 class PartialController extends Controller {
 
@@ -52,10 +51,11 @@ class PartialController extends Controller {
 		));
 	}
 	
-	public function deleteAction($id){
+	public function deleteAction($idPartial, $idCourse){
 		$em = $this->getDoctrine()->getMAnager();
-		$em ->getRepository("EvaluatorBundle:Partial")->deleteOnePartial($id);
-		return $this->redirectToRoute("evaluator_index_courses");
+		$em ->getRepository("EvaluatorBundle:Mark")->deleteMarksPartial($idPartial);
+		$em ->getRepository("EvaluatorBundle:Partial")->deleteOnePartial($idPartial);
+		return $this->redirectToRoute("evaluator_enter_course", array("id"=>$idCourse));
 	}
 }
 

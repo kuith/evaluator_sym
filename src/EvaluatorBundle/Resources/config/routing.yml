@@ -28,15 +28,15 @@ evaluator_enter_course:
     path: /courses/enter/{id}
     defaults: {_controller: EvaluatorBundle:Course:enter }
     
-evaluator_index_marks:
-    path: /marks/index/{idCourse}{idStudent}{idPartial}
-    defaults: {_controller: EvaluatorBundle:Mark:courseMarks }
+#evaluator_index_marks:
+#    path: /marks/index/{idCourse}{idStudent}{idPartial}
+#    defaults: {_controller: EvaluatorBundle:Mark:courseMarks }
     
 evaluator_add_partial:
     path: /partials/add/{id}
     defaults: { _controller: EvaluatorBundle:Partial:add }
     
 evaluator_delete_partial:
-    path: /partials/delete/{id}
+    path: /partials/delete/{idPartial}{idCourse}
     defaults: { _controller: EvaluatorBundle:Partial:delete }
     

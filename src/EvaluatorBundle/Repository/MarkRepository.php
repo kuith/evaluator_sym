@@ -24,6 +24,26 @@ class MarkRepository extends EntityRepository{
 			->getResult();
 	}
 	
+	public function findMarksByPartial($idPartial){
+		return $this->getEntityManager()
+			->createQuery(
+				"SELECT m FROM EvaluatorBundle:Mark m
+				WHERE m.idPartial = :idPartial"
+			)
+			->setParameters(array('idPartial' => $idPartial))
+			->getResult();
+	}
+	
+	
+	public function deleteMarksPartial($idPartial){
+		$em = $this->getEntityManager();
+		$marks = $this->findMarksByPartial($idPartial);
+		foreach ($marks as $mark){
+			$em->remove($mark);
+		}
+		
+		$em->flush();
+	}
 	
 }
 

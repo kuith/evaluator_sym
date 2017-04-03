@@ -18,7 +18,7 @@
                     {% for partial_no_final in partials_no_final %}
                     <th>
                         {{partial_no_final.name ~ ' (' ~ partial_no_final.weight ~ ')'}}
-                        <a href="{{path("evaluator_delete_partial", {"id":partial_no_final.id})}}"><img src="{{ asset('images/icon_delete_white.png') }}"></a>
+                        <a href="{{path("evaluator_delete_partial", {"idPartial":partial_no_final.id, "idCourse":course.id})}}"><img src="{{ asset('images/icon_delete_white.png') }}"></a>
                     </th>
                 {% endfor %}
                 {% for final in partial_final %}

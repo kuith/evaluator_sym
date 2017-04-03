@@ -76,7 +76,6 @@ class PartialRepository extends EntityRepository{
 			WHERE p.id = :idPartial"
 		)
 		->setParameters(array('idPartial' => $idPartial));
-		//$partial = $query->getResult();
 		$partial = $query->setMaxResults(1)->getOneOrNullResult();
 		
 		if (!$partial) {
@@ -86,10 +85,7 @@ class PartialRepository extends EntityRepository{
 	    }
 
 		$em->remove($partial);
-//		$em->remove($partial[0]);
 		$em->flush();
 	}
-
-	//$partial = $query->setMaxResults(1)->getOneOrNullResult();
 }
 
