@@ -40,3 +40,12 @@ evaluator_delete_partial:
     path: /partials/delete/{idPartial}{idCourse}
     defaults: { _controller: EvaluatorBundle:Partial:delete }
     
+evaluator_ajax_updatePartial:
+    path: /ajax/updatePartial
+    defaults: { _controller: EvaluatorBundle:Ajax:updatePartial }
+    
+    
+evaluator_ajax_updateFinal:
+    path: /ajax/updateFinal
+    defaults: { _controller: EvaluatorBundle:Ajax:updateFinal }
+    
