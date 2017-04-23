@@ -27,11 +27,7 @@ evaluator_delete_course:
 evaluator_enter_course:
     path: /courses/enter/{id}
     defaults: {_controller: EvaluatorBundle:Course:enter }
-    
-#evaluator_index_marks:
-#    path: /marks/index/{idCourse}{idStudent}{idPartial}
-#    defaults: {_controller: EvaluatorBundle:Mark:courseMarks }
-    
+
 evaluator_add_partial:
     path: /partials/add/{id}
     defaults: { _controller: EvaluatorBundle:Partial:add }
@@ -42,9 +38,8 @@ evaluator_delete_partial:
     
 evaluator_ajax_updatePartial:
     path: /ajax/updatePartial
-    defaults: { _controller: EvaluatorBundle:Ajax:updatePartial }
-    
-    
+    defaults: { _controller: EvaluatorBundle:Ajax:updatePartial/{idCourse}{markId}{grade}{grade_before} }
+
 evaluator_ajax_updateFinal:
     path: /ajax/updateFinal
     defaults: { _controller: EvaluatorBundle:Ajax:updateFinal }

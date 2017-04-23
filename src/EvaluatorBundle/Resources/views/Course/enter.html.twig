@@ -73,47 +73,29 @@
 
 {% block javascripts %}
     <script>
-        var celdas = document.getElementsByClassName("markCell"),
+        var cells = document.getElementsByClassName("markCell"),
             i,
-            count = celdas.length,
+            count = cells.length,
             markCleaning = function (p_mark){
                 return Number(p_mark);
             },
             cellblurListener = function (e){
-              var idCourse = e.target.dataset.courseId,
-                  grade = markCleaning(e.target.innerHTML),
-                  grade_before = e.target.dataset.originalMark,
-                  url
-            };        
+                var idCourse = e.target.dataset.courseId,
+                    idMark = e.target.dataset.markId,
+                    grade = markCleaning(e.target.innerHTML),
+                    grade_before = e.target.dataset.originalMark;
                     
-                    
-                    
-    /*
-     * 
-     * <td {{" contenteditable class = %s id = %s data-mark-id = %s data-original-mark = %s data-course-id = %s"|format("marklCell", idMarkCell, mark_no_final.id, mark_no_final.grade, courseId)}} >
-                                    {{markResult}}
-                                </td>var idCurso = "<?php echo $idCurso; ?>",
-        celdas = document.getElementsByClassName("celdaNota"),
-        i,
-        cuenta = celdas.length,
-	limpiarNota = function (p_nota) {
-            return Number(p_nota);
-	},
-	celdaBlurListener = function (e) {
-            var idCalificacion = e.target.dataset.calificacionId,
-            nota = limpiarNota(e.target.innerHTML),
-            nota_antes = e.target.dataset.notaOriginal,
-            url = '../ajax.actualizarNota.php?idCalificacion=' + idCalificacion + '&nota=' + nota + '&notaAntes=' + nota_antes + '&idCurso=' + idCurso;
-
-            if (nota !== nota_antes) {
-                $.ajax(url);
-            }
-        };
-		
-        for (i = 0; i < cuenta; i++) {
-            celdas[i].addEventListener("blur", celdaBlurListener, false);
-   	}
-*/
+                if(grade !== grade_before){
+                    function($){
+                        $.ajax({
+                            method:"GET",
+                            url: "{{url('evaluator_ajax_updatePartial', {"idCourse":idCourse}, {"markId":idMark}, {"grade":grade}, {"gradeBefore":grade_before})}}";
+                    })
+                }
+            };
+            
+            for (i = 0; i < cpunt; i++) {
+            cells[i].addEventListener("blur", celdaBlurListener, false);
     </script>
 {% endblock%}
 
