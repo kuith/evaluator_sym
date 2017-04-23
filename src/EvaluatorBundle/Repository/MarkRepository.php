@@ -45,5 +45,19 @@ class MarkRepository extends EntityRepository{
 		$em->flush();
 	}
 	
+	public function updateMark($idMark, $newGrade){
+		$em = $this->etEntityManager();
+		$mark = $this->find($idMark);
+		
+		if (!$mark) {
+			throw $this->createNotFoundException(
+				'No mark found for id '.$idMark
+			);
+		}
+		
+		$mark->setGrade($newGrade);
+		$em->flush();
+	}
+	
 }
 
