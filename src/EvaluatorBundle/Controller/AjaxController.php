@@ -1,11 +1,9 @@
 <?php
 
-
 namespace EvaluatorBundle\Controller;
 
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-
 
 
 /**
@@ -14,9 +12,11 @@ use Symfony\Component\HttpFoundation\Request;
  * @author kuith
  */
 class AjaxController extends Controller{
-	
-	public function updatePartialAction(){
-		
+
+	public function updatePartialAction(Request $request){
+		if($request->isXmlHttpRequest()){
+			
+		}
 	}
 	
 	public function updateFinalAction(){
