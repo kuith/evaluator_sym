@@ -65,9 +65,6 @@
     <script>
         
     </script>
-
-    
-    
     
 {% endblock %}
 
@@ -79,7 +76,7 @@
             markCleaning = function (p_mark){
                 return Number(p_mark);
             },
-            cellblurListener = function (e){
+            cellsblurListener = function (e){
                 var idCourse = e.target.dataset.courseId,
                     idMark = e.target.dataset.markId,
                     grade = markCleaning(e.target.innerHTML),
@@ -89,13 +86,16 @@
                     function($){
                         $.ajax({
                             method:"GET",
-                            url: "{{url('evaluator_ajax_updatePartial', {"idCourse":idCourse}, {"markId":idMark}, {"grade":grade}, {"gradeBefore":grade_before})}}";
-                    })
-                }
+                            url: "{{url('evaluator_ajax_updatePartial', {'idCourse':idCourse, 'markId':idMark, 'grade':grade, 'gradeBefore':grade_before})}}",
+                            success: function (response){
+                                console.log(response);
+                            }
+                        });
+                    };
+                };
             };
-            
-            for (i = 0; i < cpunt; i++) {
-            cells[i].addEventListener("blur", celdaBlurListener, false);
+            for (i = 0; i < count; i++) {
+            cells[i].addEventListener("blur", cellsblurListener, false);
     </script>
 {% endblock%}
 
