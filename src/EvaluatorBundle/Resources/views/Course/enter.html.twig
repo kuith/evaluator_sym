@@ -41,7 +41,7 @@
                                 {% set idMark = mark_no_final.id %}
                                 {% set markResult = mark_no_final.grade %}
                                 {% set courseId = course.id%}
-                                <td {{" contenteditable class = %s id = %s data-mark-id = %s data-original-mark = %s data-course-id = %s"|format("marklCell", idMarkCell, mark_no_final.id, mark_no_final.grade, courseId)}} >
+                                <td {{" contenteditable class = %s id = %s data-mark-id = %s data-original-mark = %s data-course-id = %s"|format("markCell", idMarkCell, mark_no_final.id, mark_no_final.grade, courseId)}} >
                                     {{markResult}}
                                 </td>
                             {% endif %}
@@ -69,7 +69,9 @@
 {% endblock %}
 
 {% block javascripts %}
-    <script>
+    {{ parent ()}}
+    
+    <!-- <script>
         var cells = document.getElementsByClassName("markCell"),
             i,
             count = cells.length,
@@ -81,22 +83,26 @@
                     idMark = e.target.dataset.markId,
                     grade = markCleaning(e.target.innerHTML),
                     grade_before = e.target.dataset.originalMark;
-                    
+            
                 if(grade !== grade_before){
-                    function($){
+                    jQuery(document).ready(function($){
                         $.ajax({
                             method:"GET",
-                            url: "{{url('evaluator_ajax_updatePartial', {'idCourse':idCourse, 'markId':idMark, 'grade':grade, 'gradeBefore':grade_before})}}",
+                            url: "{# {{url('evaluator_ajax_updatePartial', {'idCourse':idCourse, 'markId':idMark, 'grade':grade, 'gradeBefore':grade_before})}}", #}
                             success: function (response){
                                 console.log(response);
                             }
                         });
                     };
-                };
+                }
+                
             };
+            
             for (i = 0; i < count; i++) {
             cells[i].addEventListener("blur", cellsblurListener, false);
-    </script>
+    </script> -->
+   
+   <script src="{{ asset('assets/js/custom/custom.js')}}"></script>
 {% endblock%}
 
 
