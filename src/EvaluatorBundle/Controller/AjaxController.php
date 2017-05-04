@@ -19,12 +19,19 @@ class AjaxController extends Controller{
 			$idMark = $request->query->get("idMark");
 			$grade = $request->query->get("grade");
 			
-
+			
 			$em = $this->getDoctrine()->getManager();
-			$mark = $em->getRepository('EvaluatorBundle:Mark')->findOneBy(array('id' => $idMark));
+			$mark = $em->getRepository("EvaluatorBundle:Mark")->find($idMark);
+			
+			if (!$mark) {
+				throw $this->createNotFoundException(
+					'No mark found for id '.$idMark
+				);
+			}
+			
 			$mark -> setGrade($grade);
 		    $em->flush();
-			die();
+			//die();
 		}
 	}
 	
