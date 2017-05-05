@@ -7,19 +7,13 @@ use Symfony\Component\HttpFoundation\Request;
 use EvaluatorBundle\Controller\MarkController;
 
 
-/**
- * Description of AjaxController
- *
- * @author kuith
- */
 class AjaxController extends Controller{
 
 	public function updatePartialAction(Request $request){
 		if($request->isXmlHttpRequest()){
 			$idMark = $request->query->get("idMark");
 			$grade = $request->query->get("grade");
-			
-			
+			var_dump($idMark);
 			$em = $this->getDoctrine()->getManager();
 			$mark = $em->getRepository("EvaluatorBundle:Mark")->find($idMark);
 			
@@ -31,7 +25,6 @@ class AjaxController extends Controller{
 			
 			$mark -> setGrade($grade);
 		    $em->flush();
-			//die();
 		}
 	}
 	
